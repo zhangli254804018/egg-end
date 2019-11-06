@@ -3,7 +3,7 @@
 const Controller = require('egg').Controller;
 
 //注册操作调用service服务层方法
-export class ControllerRegisterController extends Controller {
+class ControllerRegisterController extends Controller {
     async controllerRegister() {
         await this.ctx.render('register');
         // await this.service.serviceRegister.InsertDatabase();
@@ -13,4 +13,6 @@ export class ControllerRegisterController extends Controller {
         // await this.controller.controllerLogin.jumpLogin();
         // await this.ctx.render('login');
     }
-} 
+}
+
+module.exports = ControllerRegisterController

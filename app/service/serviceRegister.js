@@ -2,7 +2,7 @@
 const Service = require('egg').Service;
 
 //导出服务注册方法
-export class ServiceRegisterService extends Service {
+class ServiceRegisterService extends Service {
     async InsertDatabase() {
         console.log('=================');
         console.log(this.ctx)
@@ -13,4 +13,5 @@ export class ServiceRegisterService extends Service {
     }
 }
 
-
+//
+module.exports = ServiceRegisterService
