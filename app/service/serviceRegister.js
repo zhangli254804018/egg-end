@@ -20,5 +20,4 @@ class ServiceRegisterService extends Service {
     }
 }
 
-//
 module.exports = ServiceRegisterService

@@ -34,3 +34,5 @@ class ControllerRegisterController extends Controller {
 }
 
 module.exports = ControllerRegisterController
+
+
