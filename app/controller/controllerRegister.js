@@ -12,19 +12,21 @@ class ControllerRegisterController extends Controller {
         console.log(reponse);
         try {
             const InsertDatabase = await this.service.serviceRegister.InsertDatabase();
-            // this.ctx.body = InsertDatabase.username + '注册成功';
             this.ctx.body = reponse.success({
-                message: InsertDatabase.username + '注册成功',
+                message: '注册成功',
                 data: {
                     username: InsertDatabase.username,
                     password: '******'
                 }
             })
         } catch (error) {
+            console.log(error);
+            console.log(this.ctx);
+            const status = this.ctx.response.status
             this.ctx.body = reponse.error({
-                message: '抱歉！注册失败，请重新注册'
+                message: '抱歉！注册失败，请重新注册',
+                status: status
             })
-            // this.ctx.body = '抱歉！注册失败，请重新注册';
         }
         // await this.controller.controllerLogin.jumpLogin();
         // await this.ctx.render('login');
