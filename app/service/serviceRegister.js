@@ -3,6 +3,11 @@ const Service = require('egg').Service;
 
 //导出服务注册方法
 class ServiceRegisterService extends Service {
+    /**
+    * 根据username password 注册用户
+    * @param {*} username 
+    * @param {*} password
+    */
     async InsertDatabase() {
         console.log('================= start');
         console.log(this.ctx.request.body)
