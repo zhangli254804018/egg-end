@@ -4,7 +4,7 @@ const Controller = require('egg').Controller;
 const { reponse } = require('../extend/helper.js')
 //注册操作调用service服务层方法
 /**
-* @controller ControllerRegisterController 注释必写，swagger-doc是根据这段注释来生成接口的 ）。
+* @controller 注册用户模块
 */
 class ControllerRegisterController extends Controller {
     /**  （ 注释必写，swagger-doc是根据这段注释来生成接口详细信息的 ）。
