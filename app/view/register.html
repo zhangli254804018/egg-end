@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>注册页面</title>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <h4>注册页面</h4>
+  <form class="formRegister">
+    username:<input type="text" name="username" id="username" /><br>
+    password: <input type="password" name="password" id="password" /><br>
+    <a href="javascript:;" id="registerBtn">点击注册</a>
+  </form>
+</body>
+<script>
+  // 封装获取 cookie 的方法
+  function getCookie(name) {
+    var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+    if (arr = document.cookie.match(reg))
+      return unescape(arr[2]);
+    else
+      return null;
+  }
+</script>
+<script>
+  $('#registerBtn').click(function () {
+    var data = $("form").serialize()
+    $.ajax({
+      headers: {
+        'x-csrf-token': getCookie("csrfToken"), // 前后端不分离的情况加每次打开客户端，egg会直接在客户端的 Cookie 中写入密钥 ，密钥的 Key 就是 'scrfToken' 这个字段，所以直接获取就好了
+      },
+      type: 'post',
+      url: '/commit',
+      data: data,
+      success: function (data) {
+        // your code
+        console.log('success')
+        console.log(data);
+      }
+    });
+
+  })
+</script>
+
+</html>

@@ -31,3 +31,8 @@ $ npm stop
 
 
 [egg]: https://eggjs.org
+
+
+### 框架说明结构
+
+-   1.[下载mysqlwin版本软件](https://pan.baidu.com/s/1PuMt7VaUV2qSwf0GsfMuHA)
