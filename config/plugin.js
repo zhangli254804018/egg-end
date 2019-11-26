@@ -10,5 +10,9 @@ module.exports = {
   ejs: {
     enable: true,
     package: 'egg-view-ejs',
+  },
+  swaggerdoc: {
+    enable: true,
+    package: 'egg-swagger-doc',
   }
 };
