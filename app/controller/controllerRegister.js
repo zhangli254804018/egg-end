@@ -21,10 +21,11 @@ class ControllerRegisterController extends Controller {
     async register() {
         console.log('reponse');
         console.log(reponse);
+        console.log(this.service);        
         try {
             const InsertDatabase = await this.service.serviceRegister.InsertDatabase();
             this.ctx.body = reponse.success({
-                message: '注册成功',
+                message: '成功',
                 data: {
                     username: InsertDatabase.username,
                     password: '******'
