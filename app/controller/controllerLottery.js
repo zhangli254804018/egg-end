@@ -35,8 +35,17 @@ class ControllerLotteryController extends Controller {
             })
         }
     }
-    async lotteryList(){
-        
+    /**  （ 注释必写，swagger-doc是根据这段注释来生成接口详细信息的 ）。
+   * @Summary 查询中奖数据
+   * @Description  中奖号码
+   * @Router get /lottery 
+   * @request query integer pageNo 页码 默认 1
+   * @request query integer pageSize 单页数量 默认 20
+   * @Request header string access_token
+   * @Response 200   返回返回token结果。（ 对应 contract 里面的验证属性，下面会提到 。） 
+   */
+    async lotteryList() {
+
     }
 }
 
