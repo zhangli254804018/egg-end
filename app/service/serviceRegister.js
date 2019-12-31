@@ -16,7 +16,7 @@ class ServiceRegisterService extends Service {
         const username = body.username;
         const password = body.password;
         try {
-            const registerSuccess = await this.app.mysql.insert('register', { username, password });
+            const registerSuccess = await this.app.mysql.insert('user', { username, password });
             console.log(username + '......' + password);
             return Promise.resolve(body)
         } catch (error) {

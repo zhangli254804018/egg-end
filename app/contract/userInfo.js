@@ -10,5 +10,12 @@ module.exports = {
   loginUser: {
     username: { type: 'string', required: true },
     password: { type: 'string', required: true },
+  },
+  lottery: {
+    creat_time: {  type: 'string' },
+    update_time: { type: 'string' },
+    name: { type: 'string' },
+    number: { type: 'string', required: true },
+    uid: { type: 'integer' }
   }
 };

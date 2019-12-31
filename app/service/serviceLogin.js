@@ -23,7 +23,7 @@ class ServiceLoginService extends Service {
             //     limit: 10, // 返回数据量
             //     offset: 0, // 数据偏移量
             //   });
-            const loginSucess = await this.app.mysql.select('register', {
+            const loginSucess = await this.app.mysql.select('user', {
                 where: { username: username, password: password }, // WHERE 条件
                 limit: 1, // 返回数据量
             });
