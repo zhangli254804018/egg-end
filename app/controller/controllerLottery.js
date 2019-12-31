@@ -8,8 +8,8 @@ const { reponse } = require('../extend/helper.js')
 */
 class ControllerLotteryController extends Controller {
     /**  （ 注释必写，swagger-doc是根据这段注释来生成接口详细信息的 ）。
-    * @Summary 用户登录。
-    * @Description  登录用户。
+    * @Summary 录入数据
+    * @Description  录入中奖号码
     * @Router post /lottery 
     * @Request body lottery 提交抽奖列表（ 注意提交post json格式 ）。
     * @Request header string access_token
@@ -34,6 +34,9 @@ class ControllerLotteryController extends Controller {
                 status: status
             })
         }
+    }
+    async lotteryList(){
+        
     }
 }
 

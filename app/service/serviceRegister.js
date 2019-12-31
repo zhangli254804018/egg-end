@@ -23,6 +23,17 @@ class ServiceRegisterService extends Service {
             return Promise.reject()
         }
     }
+    async findDatabase(){
+        console.log('================= start');
+        console.log(this.ctx.request.body)
+        console.log(this.ctx.request.query)
+        console.log('================= end');
+        try {
+            
+        } catch (error) {
+            
+        }
+    }
 }
 
 module.exports = ServiceRegisterService
