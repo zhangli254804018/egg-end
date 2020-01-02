@@ -13,11 +13,11 @@ class ServiceLoteryService extends Service {
         console.log(this.ctx.request.body);
         console.log('================= end');
         const body = this.ctx.request.body;
-        const creat_time = nowTime();
+        const creat_time = this.app.mysql.literals.now;
         const update_time = nowTime();
         const name = body.name;
-        const number = body.number
-        const uid = body.uid
+        const number = body.number;
+        const uid = body.uid;
         console.log('··········');
         console.log({ creat_time, update_time, name, number });
         try {

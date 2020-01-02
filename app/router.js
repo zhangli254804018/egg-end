@@ -8,9 +8,9 @@ module.exports = app => {
   //首页页面
   router.get('/', controller.home.index);
   //注册
-  router.post('/commit', controller.controllerRegister.register);
+  router.post('/api/commit', controller.controllerRegister.register);
   //登录
-  router.post('/login', controller.controllerLogin.login);
+  router.post('/api/login', controller.controllerLogin.login);
   //录入数据
-  router.post('/lottery', controller.controllerLottery.lottery);
+  router.post('/api/lottery', controller.controllerLottery.lottery);
 };

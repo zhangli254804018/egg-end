@@ -10,7 +10,7 @@ class ControllerLotteryController extends Controller {
     /**  （ 注释必写，swagger-doc是根据这段注释来生成接口详细信息的 ）。
     * @Summary 录入数据
     * @Description  录入中奖号码
-    * @Router post /lottery 
+    * @Router post /api/lottery 
     * @Request body lottery 提交抽奖列表（ 注意提交post json格式 ）。
     * @Request header string access_token
     * @Response 200   返回返回token结果。（ 对应 contract 里面的验证属性，下面会提到 。） 
@@ -38,7 +38,7 @@ class ControllerLotteryController extends Controller {
     /**  （ 注释必写，swagger-doc是根据这段注释来生成接口详细信息的 ）。
    * @Summary 查询中奖数据
    * @Description  中奖号码
-   * @Router get /lottery 
+   * @Router get /api/lottery 
    * @request query integer pageNo 页码 默认 1
    * @request query integer pageSize 单页数量 默认 20
    * @Request header string access_token

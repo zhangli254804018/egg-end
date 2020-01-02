@@ -10,7 +10,7 @@ class ControllerLoginController extends Controller {
     /**  （ 注释必写，swagger-doc是根据这段注释来生成接口详细信息的 ）。
     * @Summary 用户登录。
     * @Description  登录用户。
-    * @Router post /login 
+    * @Router post /api/login 
     * @Request body loginUser 提交账号和密码（ 注意提交post json格式 ）。
     * @Request header string access_token
     * @Response 200   返回返回token结果。（ 对应 contract 里面的验证属性，下面会提到 。） 
