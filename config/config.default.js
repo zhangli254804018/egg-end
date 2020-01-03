@@ -69,9 +69,9 @@ module.exports = appInfo => {
       // 端口号
       port: '3306',
       // 用户名
-      user: 'root',
+      user: 'test',
       // 密码
-      password: '123456',
+      password: 'chenyanqin1992',
       // 数据库名
       database: 'test',
     },
@@ -85,6 +85,7 @@ module.exports = appInfo => {
   config.security = {
     csrf: {
       headerName: 'x-csrf-token',// 自定义请求头
+      enable: false //关闭跨域post方法 
     }
   }
   config.swaggerdoc = {
