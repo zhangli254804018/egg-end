@@ -38,13 +38,21 @@ class ServiceLoteryService extends Service {
             return Promise.reject()
         }
     }
-    async findDatabase(){
+    async findDatabase() {
         console.log('================= start');
         console.log(this.ctx.request.query);
         console.log('================= end');
         const query = this.ctx.request.query;
         const creat_time = this.app.mysql.literals.now;
-        
+        try {
+            const lotteryInfo = await this.app.mysql.select('lottery', {
+                where: {}, // WHERE 条件
+                limit: 10, // 返回数据量
+            });
+            return Promise.resolve(lotteryInfo)
+        } catch (error) {
+            return Promise.reject()
+        }
     }
 }
 
