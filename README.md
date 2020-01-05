@@ -36,3 +36,7 @@ $ npm stop
 ### 框架说明结构
 
 -   1.[下载mysqlwin版本软件](https://pan.baidu.com/s/1PuMt7VaUV2qSwf0GsfMuHA)
+
+- docker run -itd --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=chenyanqin1992 mysql
+
+- docker restart  ed1ffcb5eff3

@@ -38,6 +38,14 @@ class ServiceLoteryService extends Service {
             return Promise.reject()
         }
     }
+    async findDatabase(){
+        console.log('================= start');
+        console.log(this.ctx.request.query);
+        console.log('================= end');
+        const query = this.ctx.request.query;
+        const creat_time = this.app.mysql.literals.now;
+        
+    }
 }
 
 module.exports = ServiceLoteryService
