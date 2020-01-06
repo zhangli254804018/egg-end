@@ -13,4 +13,6 @@ module.exports = app => {
   router.post('/api/login', controller.controllerLogin.login);
   //录入数据
   router.post('/api/lottery', controller.controllerLottery.lottery);
+  //录入数据
+  router.get('/api/lottery', controller.controllerLottery.lotteryList);
 };

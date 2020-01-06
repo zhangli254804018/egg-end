@@ -38,6 +38,29 @@ class ServiceLoteryService extends Service {
             return Promise.reject()
         }
     }
+    async findDataBase() {
+        console.log('================= start');
+        console.log(this.ctx.request.query);
+        console.log('================= end');
+        const query = this.ctx.request.query;
+        try {
+            const name = query.name
+            const page = query.page || 1
+            const pageSize = query.pageSize || 10
+            const limitPage = page * pageSize
+            const offsetPage = (page - 1) * pageSize
+            //查找数据库数据
+            const lotteryList = await this.app.mysql.select('lottery', {
+                where: { name }, // WHERE 条件
+                limit: limitPage, // 返回数据量
+                offset: offsetPage
+            })
+            return Promise.resolve(lotteryList)
+        } catch (error) {
+            console.log(error);
+            return Promise.reject()
+        }
+    }
 }
 
 module.exports = ServiceLoteryService

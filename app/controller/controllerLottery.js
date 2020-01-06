@@ -39,13 +39,24 @@ class ControllerLotteryController extends Controller {
    * @Summary 查询中奖数据
    * @Description  中奖号码
    * @Router get /api/lottery 
+   * @request query string name 奖项名称
    * @request query integer pageNo 页码 默认 1
    * @request query integer pageSize 单页数量 默认 20
    * @Request header string access_token
    * @Response 200   返回返回token结果。（ 对应 contract 里面的验证属性，下面会提到 。） 
    */
     async lotteryList() {
-
+        console.log('reponse');
+        console.log(reponse);
+        try {
+            const lotteryInfo = await this.service.serviceLottery.findDataBase();
+            this.ctx.body = reponse.success({
+                message: '成功',
+                data: lotteryInfo
+            })
+        } catch (error) {
+            
+        }
     }
 }
 
