@@ -49,9 +49,14 @@ class ServiceLoteryService extends Service {
             const pageSize = query.pageSize || 10
             const limitPage = page * pageSize
             const offsetPage = (page - 1) * pageSize
+            const TABLE_NAME = 'lottery';
+            const QUERY_STR = '*';
+            //mysql语句查询
+            // let sql = name ? `SELECT ${QUERY_STR} FROM ${TABLE_NAME} WHERE name LIKE "%${name}%" LIMIT ${limitPage} OFFSET ${offsetPage}` : `SELECT ${QUERY_STR} FROM ${TABLE_NAME} LIMIT ${limitPage} OFFSET ${offsetPage}`
+            // const lotteryList = await this.app.mysql.query(sql);
             //查找数据库数据
             const lotteryList = await this.app.mysql.select('lottery', {
-                where: { name }, // WHERE 条件
+                where: { name: name }, // WHERE 条件
                 limit: limitPage, // 返回数据量
                 offset: offsetPage
             })

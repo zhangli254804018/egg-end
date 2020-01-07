@@ -52,10 +52,12 @@ class ControllerLotteryController extends Controller {
             const lotteryInfo = await this.service.serviceLottery.findDataBase();
             this.ctx.body = reponse.success({
                 message: '成功',
-                data: lotteryInfo
+                data: {
+                    list: lotteryInfo
+                }
             })
         } catch (error) {
-            
+
         }
     }
 }
