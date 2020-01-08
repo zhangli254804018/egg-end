@@ -52,7 +52,8 @@ class ServiceLoteryService extends Service {
             //mysql语句查询
             const TABLE_NAME = 'lottery';
             const QUERY_STR = '*';
-            let sql = name ? `SELECT ${QUERY_STR} FROM ${TABLE_NAME} WHERE name LIKE "%${name}%" LIMIT ${limitPage} OFFSET ${offsetPage}` : `SELECT ${QUERY_STR} FROM ${TABLE_NAME} LIMIT ${limitPage} OFFSET ${offsetPage}`
+            let sql = name ? `SELECT ${QUERY_STR} FROM ${TABLE_NAME} WHERE name LIKE "%${name}%" ` : `SELECT ${QUERY_STR} FROM ${TABLE_NAME} `
+            sql = sql + `LIMIT ${limitPage} OFFSET ${offsetPage}`
             let lotteryList = await this.app.mysql.query(sql);
             if (lotteryList.length > 0) {
                 lotteryList.forEach(item => {
