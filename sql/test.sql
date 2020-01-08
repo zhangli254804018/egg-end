@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50727
 File Encoding         : 65001
 
-Date: 2020-01-06 09:42:51
+Date: 2020-01-08 11:39:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `lottery` (
   `creat_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of lottery
@@ -35,6 +35,9 @@ CREATE TABLE `lottery` (
 INSERT INTO `lottery` VALUES ('23', '23,23,3,23,4,4', null, '31', '2019-12-31 11:05:30', '2019-12-31 11:05:30');
 INSERT INTO `lottery` VALUES ('2453', '23,23,3,23,4,4', null, '32', '2019-12-31 11:08:52', '2019-12-31 11:08:52');
 INSERT INTO `lottery` VALUES ('大乐透', '23,23,3,23,4,4', null, '33', '2019-12-31 11:09:22', '2019-12-31 11:09:22');
+INSERT INTO `lottery` VALUES ('大乐透', '1,2,3,4,5,6,67,7,8,8', null, '34', '2020-01-08 11:16:45', '2020-01-08 11:16:45');
+INSERT INTO `lottery` VALUES ('大乐透2020-1-8', '1,2,3,2,6,2,3,48', null, '35', '2020-01-08 11:17:22', '2020-01-08 11:17:22');
+INSERT INTO `lottery` VALUES ('大乐透2020-1-8 11:19:00', '1,2,3,2,6,2,3,48', null, '36', '2020-01-08 11:19:57', '2020-01-08 11:19:57');
 
 -- ----------------------------
 -- Table structure for `user`
