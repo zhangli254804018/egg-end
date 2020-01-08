@@ -1,6 +1,6 @@
 //登录账号的eggjs 彩票代码
 const Service = require('egg').Service;
-const { nowTime } = require('../extend/helper.js')
+const { nowTime, formatDate } = require('../extend/helper.js')
 //登录方法
 class ServiceLoteryService extends Service {
     /**
@@ -14,7 +14,7 @@ class ServiceLoteryService extends Service {
         console.log('================= end');
         const body = this.ctx.request.body;
         const creat_time = this.app.mysql.literals.now;
-        const update_time = nowTime();
+        const update_time = this.app.mysql.literals.now;
         const name = body.name;
         const number = body.number;
         const uid = body.uid;
@@ -49,17 +49,23 @@ class ServiceLoteryService extends Service {
             const pageSize = query.pageSize || 10
             const limitPage = page * pageSize
             const offsetPage = (page - 1) * pageSize
+            //mysql语句查询
             const TABLE_NAME = 'lottery';
             const QUERY_STR = '*';
-            //mysql语句查询
-            // let sql = name ? `SELECT ${QUERY_STR} FROM ${TABLE_NAME} WHERE name LIKE "%${name}%" LIMIT ${limitPage} OFFSET ${offsetPage}` : `SELECT ${QUERY_STR} FROM ${TABLE_NAME} LIMIT ${limitPage} OFFSET ${offsetPage}`
-            // const lotteryList = await this.app.mysql.query(sql);
+            let sql = name ? `SELECT ${QUERY_STR} FROM ${TABLE_NAME} WHERE name LIKE "%${name}%" LIMIT ${limitPage} OFFSET ${offsetPage}` : `SELECT ${QUERY_STR} FROM ${TABLE_NAME} LIMIT ${limitPage} OFFSET ${offsetPage}`
+            let lotteryList = await this.app.mysql.query(sql);
+            if (lotteryList.length > 0) {
+                lotteryList.forEach(item => {
+                    item.creat_time = formatDate(item.creat_time)
+                    item.update_time = formatDate(item.update_time)
+                })
+            }
             //查找数据库数据
-            const lotteryList = await this.app.mysql.select('lottery', {
-                where: { name: name }, // WHERE 条件
-                limit: limitPage, // 返回数据量
-                offset: offsetPage
-            })
+            // const lotteryList = await this.app.mysql.select('lottery', {
+            //     where: { name: name }, // WHERE 条件
+            //     limit: limitPage, // 返回数据量
+            //     offset: offsetPage
+            // })
             return Promise.resolve(lotteryList)
         } catch (error) {
             console.log(error);

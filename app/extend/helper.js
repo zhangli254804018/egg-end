@@ -2,7 +2,7 @@
 const moment = require('moment');
 exports.relativeTime = time => moment(new Date(time * 1000)).fromNow();
 
-exports.nowTime = (type='YYYY-MM-DD HH:mm:ss') => moment().format(type)
+exports.nowTime = (type = 'YYYY-MM-DD HH:mm:ss') => moment().format(type);
 
 exports.reponse = {
     success: function (params = {}) {
@@ -20,5 +20,8 @@ exports.reponse = {
             status: status || '400'
         }
     },
-}
+};
+
+
+exports.formatDate = (time, type = 'YYYY-MM-DD HH:mm:ss') => moment(time).format(type);
 
