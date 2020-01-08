@@ -6,7 +6,7 @@
 module.exports = app => {
     const { router, controller } = app;
     //注册
-    router.post('/api/commit', controller.controllerRegister.register);
+    router.post('/api/register', controller.controllerRegister.register);
     //登录
     router.post('/api/login', controller.controllerLogin.login);
 };

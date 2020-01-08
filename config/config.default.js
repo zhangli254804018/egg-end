@@ -87,7 +87,7 @@ module.exports = appInfo => {
       headerName: 'x-csrf-token',// 自定义请求头
       enable: false //关闭跨域post方法 
     }
-  }
+  };
   config.swaggerdoc = {
     dirScanner: '/app/controller',
     apiInfo: {
