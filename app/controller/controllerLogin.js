@@ -33,7 +33,7 @@ class ControllerLoginController extends Controller {
             console.log(this.ctx);
             const status = this.ctx.response.status
             this.ctx.body = reponse.error({
-                message: '暂无该用户数据',
+                message: '失败',
                 status: status
             })
         }

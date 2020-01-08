@@ -21,7 +21,7 @@ class ControllerRegisterController extends Controller {
     async register() {
         console.log('reponse');
         console.log(reponse);
-        console.log(this.service);        
+        console.log(this.service);
         try {
             const InsertDatabase = await this.service.serviceRegister.InsertDatabase();
             this.ctx.body = reponse.success({
