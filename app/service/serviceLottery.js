@@ -47,7 +47,7 @@ class ServiceLoteryService extends Service {
             const name = query.name
             const page = query.page || 1
             const pageSize = query.pageSize || 10
-            const limitPage = page * pageSize
+            const limitPage = pageSize
             const offsetPage = (page - 1) * pageSize
             //mysql语句查询
             const TABLE_NAME = 'lottery';

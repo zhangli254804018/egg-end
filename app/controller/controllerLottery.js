@@ -40,7 +40,7 @@ class ControllerLotteryController extends Controller {
    * @Description  中奖号码
    * @Router get /api/lottery 
    * @request query string name 奖项名称
-   * @request query integer pageNo 页码 默认 1
+   * @request query integer page 页码 默认 1
    * @request query integer pageSize 单页数量 默认 20
    * @Request header string access_token
    * @Response 200   返回返回token结果。（ 对应 contract 里面的验证属性，下面会提到 。） 
