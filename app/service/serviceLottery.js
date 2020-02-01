@@ -49,8 +49,9 @@ class ServiceLoteryService extends Service {
     console.log("================= end");
     const query = this.ctx.request.query;
     const access_token = this.ctx.header.access_token; // 获取jwt
+    var payload = {};
     try {
-      var payload = await this.app.jwt.verify(access_token); // // 解密，获取payload
+      payload = await this.app.jwt.verify(access_token); // // 解密，获取payload
       console.log("access_token");
       console.log(access_token);
       console.log(payload);
