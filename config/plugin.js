@@ -1,18 +1,22 @@
-'use strict';
+"use strict";
 
 /** @type Egg.EggPlugin */
 module.exports = {
   // had enabled by egg
   mysql: {
     enable: true,
-    package: 'egg-mysql',
+    package: "egg-mysql"
   },
   ejs: {
     enable: true,
-    package: 'egg-view-ejs',
+    package: "egg-view-ejs"
   },
   swaggerdoc: {
     enable: true,
-    package: 'egg-swagger-doc',
+    package: "egg-swagger-doc"
+  },
+  jwt: {
+    enable: true,
+    package: "egg-jwt",
   }
 };
