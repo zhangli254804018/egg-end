@@ -58,46 +58,45 @@
 //   };
 // };
 
-
 module.exports = appInfo => {
-  const config = exports = {};
-  config.keys = appInfo.name + ' ';
+  const config = (exports = {});
+  config.keys = appInfo.name + " ";
   config.mysql = {
     client: {
       // host
-      host: 'localhost',
+      host: "localhost",
       // 端口号
-      port: '3306',
+      port: "3306",
       // 用户名
-      user: 'test',
+      user: "test",
       // 密码
-      password: 'chenyanqin1992',
+      password: "chenyanqin1992",
       // 数据库名
-      database: 'test',
-    },
+      database: "test"
+    }
   };
   config.view = {
-    defaultViewEngine: '.ejs',
+    defaultViewEngine: ".ejs",
     mapping: {
-      '.html': 'ejs',
-    },
+      ".html": "ejs"
+    }
   };
   config.security = {
     csrf: {
-      headerName: 'x-csrf-token',// 自定义请求头
-      enable: false //关闭跨域post方法 
+      headerName: "x-csrf-token", // 自定义请求头
+      enable: false //关闭跨域post方法
     }
-  }
+  };
   config.swaggerdoc = {
-    dirScanner: '/app/controller',
+    dirScanner: "/app/controller",
     apiInfo: {
-      title: 'egg-swagger',
-      description: 'swagger-ui for egg',
-      version: '1.0.0',
+      title: "egg-swagger",
+      description: "swagger-ui for egg",
+      version: "1.0.0"
     },
-    schemes: ['http', 'https'],
-    consumes: ['application/json'],
-    produces: ['application/json'],
+    schemes: ["http", "https"],
+    consumes: ["application/json"],
+    produces: ["application/json"],
     securityDefinitions: {
       // apikey: {
       //   type: 'apiKey',
@@ -117,10 +116,12 @@ module.exports = appInfo => {
     enableSecurity: false,
     // enableValidate: true,
     routerMap: true,
-    enable: true,
+    enable: true
+  };
+  config.jwt = {
+    secret: "123456" //自己设置的值
   };
   return {
-    ...config,
+    ...config
   };
-
 };
