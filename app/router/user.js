@@ -9,4 +9,5 @@ module.exports = app => {
     router.post('/api/register', controller.controllerRegister.register);
     //登录
     router.post('/api/login', controller.controllerLogin.login);
+    
 };

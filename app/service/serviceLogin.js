@@ -27,23 +27,25 @@ class ServiceLoginService extends Service {
         where: { username: username, password: password }, // WHERE 条件
         limit: 1 // 返回数据量
       });
-      try {
-        console.log(this.app.jwt);
-        //生成 token 的方式
-        var token = this.app.jwt.sign({
-          username: username //需要存储的 token 数据
-        });
-        console.log("token");
-        console.log(token);
-      } catch (error) {
-        console.log("token");
-        console.log(error);
-      }
+
       if (loginSucess.length > 0) {
         console.log(username + "......" + password);
         console.log(loginSucess);
         console.log(loginSucess[0]);
         const result = loginSucess[0] || {};
+        try {
+          console.log(this.app.jwt);
+          //生成 token 的方式
+          var token = this.app.jwt.sign({
+            uid: result.uid, //需要存储的 token 数据
+            username:username
+          });
+          console.log("token");
+          console.log(token);
+        } catch (error) {
+          console.log("token");
+          console.log(error);
+        }
         // result.token = token;
         // console.log("result");
         // console.log(result);

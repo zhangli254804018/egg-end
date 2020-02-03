@@ -56,6 +56,7 @@ class ServiceLoteryService extends Service {
       console.log(access_token);
       console.log(payload);
     } catch (error) {}
+    
     try {
       const name = query.name;
       const page = query.page || 1;
