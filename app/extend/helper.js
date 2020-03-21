@@ -24,13 +24,14 @@ exports.reponse = {
 
 exports.formatDate = (time, type = "YYYY-MM-DD HH:mm:ss") => moment(time).format(type);
 
-// exports.getToken = (_this)=>{
-//   const access_token = this.ctx.header.access_token; // 获取jwt
-//   var payload = {};
-//   try {
-//     payload = await this.app.jwt.verify(access_token); // // 解密，获取payload
-//     console.log("access_token");
-//     console.log(access_token);
-//     console.log(payload);
-//   } catch (error) {}
-// }
+exports.getToken = async (_this)=>{
+  const access_token = _this.ctx.header.access_token; // 获取jwt
+  var payload = {};
+  try {
+    payload = await _this.app.jwt.verify(access_token); // // 解密，获取payload
+    console.log("access_token");
+    console.log(access_token);
+    console.log(payload);
+  } catch (error) {}
+  return payload
+}
