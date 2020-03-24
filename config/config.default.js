@@ -70,7 +70,7 @@ module.exports = appInfo => {
       // 用户名
       user: "test",
       // 密码
-      password: "chenyanqin1992",
+      password: "Aa123!",
       // 数据库名
       database: "test"
     }
