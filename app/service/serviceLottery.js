@@ -48,15 +48,17 @@ class ServiceLoteryService extends Service {
     console.log(this.ctx.request.query);
     console.log("================= end");
     const query = this.ctx.request.query;
-    const access_token = this.ctx.header.access_token; // 获取jwt
+    const token = this.ctx.header.token; // 获取jwt
     var payload = {};
     try {
-      payload = await this.app.jwt.verify(access_token); // // 解密，获取payload
-      console.log("access_token");
-      console.log(access_token);
+      payload = await this.app.jwt.verify(token); // // 解密，获取payload
+      console.log("token");
+      console.log(token);
       console.log(payload);
-    } catch (error) {}
-    
+      console.log('*******打印service*********');
+      console.log(Service);
+    } catch (error) { }
+
     try {
       const name = query.name;
       const page = query.page || 1;

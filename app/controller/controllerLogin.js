@@ -11,12 +11,13 @@ class ControllerLoginController extends Controller {
    * @Description  登录用户。
    * @Router post /api/login
    * @Request body loginUser 提交账号和密码（ 注意提交post json格式 ）。
-   * @Request header string access_token
+   * @Request header string token
    * @Response 200   返回返回token结果。（ 对应 contract 里面的验证属性，下面会提到 。）
    */
   async controllerLogin() {
     await this.ctx.render("login");
   }
+
   async login() {
     console.log("reponse");
     console.log(reponse);
