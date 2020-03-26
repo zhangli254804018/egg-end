@@ -12,7 +12,7 @@ class ControllerLotteryController extends Controller {
     * @Description  录入中奖号码
     * @Router post /api/lottery 
     * @Request body lottery 提交抽奖列表（ 注意提交post json格式 ）。
-    * @Request header string access_token
+    * @Request header string token
     * @Response 200   返回返回token结果。（ 对应 contract 里面的验证属性，下面会提到 。） 
     */
     async lottery() {
@@ -42,7 +42,7 @@ class ControllerLotteryController extends Controller {
    * @request query string name 奖项名称
    * @request query integer page 页码 默认 1
    * @request query integer pageSize 单页数量 默认 20
-   * @Request header string access_token
+   * @Request header string token
    * @Response 200   返回返回token结果。（ 对应 contract 里面的验证属性，下面会提到 。） 
    */
     async lotteryList() {

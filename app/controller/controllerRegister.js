@@ -12,7 +12,7 @@ class ControllerRegisterController extends Controller {
     * @Description { username:xx,password:xx } 注册用户。
     * @Router post /api/register （ get 表示设置请求为 get 请求，最后的 selectById 对应下面的 selectById 方法 ）。
     * @Request body createUser 提交用户名。（ 注意提交post json格式 ）。
-    * @Request header string access_token
+    * @Request header string token
     * @Response 200   返回结果。（ 对应 contract 里面的验证属性，下面会提到 。）
     */
     async controllerRegister() {

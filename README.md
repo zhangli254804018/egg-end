@@ -35,8 +35,10 @@ $ npm stop
 
 ### 框架说明结构
 
+### window版本
 -   1.[下载mysqlwin版本软件](https://pan.baidu.com/s/1PuMt7VaUV2qSwf0GsfMuHA)
 
+### mac版本或者linux服务器
+- docker pull mysql:latest
 - docker run -itd --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=chenyanqin1992 mysql
-
-- docker restart  ed1ffcb5eff3
+- docker restart  mysql
