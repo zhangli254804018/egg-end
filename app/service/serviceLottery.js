@@ -57,7 +57,9 @@ class ServiceLoteryService extends Service {
       console.log(payload);
       console.log('*******打印service*********');
       console.log(Service);
-    } catch (error) { }
+    } catch (error) {
+      console.log(error);      
+    }
 
     try {
       const name = query.name;
@@ -78,7 +80,7 @@ class ServiceLoteryService extends Service {
           item.creat_time = formatDate(item.creat_time);
           item.update_time = formatDate(item.update_time);
         });
-      }
+      };
       //查找数据库数据
       // const lotteryList = await this.app.mysql.select('lottery', {
       //     where: { name: name }, // WHERE 条件

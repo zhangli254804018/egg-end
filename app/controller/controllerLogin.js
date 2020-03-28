@@ -26,6 +26,8 @@ class ControllerLoginController extends Controller {
       const userInfo = await this.service.serviceLogin.FindDatabase();
       console.log("userInfo");
       console.log(userInfo);
+      this.ctx.set('token', userInfo.token);
+      delete userInfo.token
       this.ctx.body = reponse.success({
         message: "成功",
         data: userInfo
