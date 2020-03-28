@@ -27,10 +27,11 @@ class ControllerLoginController extends Controller {
       console.log("userInfo");
       console.log(userInfo);
       this.ctx.set('token', userInfo.token);
-      delete userInfo.token
       this.ctx.body = reponse.success({
         message: "成功",
-        data: userInfo
+        data: {
+          username: userInfo.username
+        }
       });
     } catch (error) {
       console.log(error);
