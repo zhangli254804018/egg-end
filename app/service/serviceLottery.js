@@ -21,6 +21,12 @@ class ServiceLoteryService extends Service {
     console.log("··········");
     console.log({ creat_time, update_time, name, number });
     try {
+      const token = this.ctx.header.token; // 获取jwt
+      var payload = {};
+      payload = await this.app.jwt.verify(token); // // 解密，获取payload
+      console.log("token");
+      console.log(token);
+      console.log(payload);
       const lotteryInfo = await this.app.mysql.select("lottery", {
         where: { number, name }, // WHERE 条件
         limit: 1 // 返回数据量
@@ -36,31 +42,22 @@ class ServiceLoteryService extends Service {
         console.log(body);
         return Promise.resolve(body);
       } else {
-        return Promise.reject();
+        return Promise.reject({
+          message:'数据已存在'
+        });
       }
     } catch (error) {
+      console.log('********校验token*******');
       console.log(error);
-      return Promise.reject();
+      return Promise.reject(error);
     }
   }
+
   async findDataBase() {
     console.log("================= start");
     console.log(this.ctx.request.query);
     console.log("================= end");
     const query = this.ctx.request.query;
-    const token = this.ctx.header.token; // 获取jwt
-    var payload = {};
-    try {
-      payload = await this.app.jwt.verify(token); // // 解密，获取payload
-      console.log("token");
-      console.log(token);
-      console.log(payload);
-      console.log('*******打印service*********');
-      console.log(Service);
-    } catch (error) {
-      console.log(error);      
-    }
-
     try {
       const name = query.name;
       const page = query.page || 1;
@@ -90,7 +87,7 @@ class ServiceLoteryService extends Service {
       return Promise.resolve(lotteryList);
     } catch (error) {
       console.log(error);
-      return Promise.reject();
+      return Promise.reject(error);
     }
   }
 }

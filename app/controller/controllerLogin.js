@@ -36,9 +36,10 @@ class ControllerLoginController extends Controller {
     } catch (error) {
       console.log(error);
       console.log(this.ctx);
+      //ctx.response.body.status
       const status = this.ctx.response.status;
       this.ctx.body = reponse.error({
-        message: "失败",
+        message: error && error.message || "失败",
         status: status
       });
     }

@@ -37,7 +37,8 @@ class ServiceLoginService extends Service {
           console.log(this.app.jwt);
           //生成 token 的方式
           var token = this.app.jwt.sign({
-            uid: result.uid, //需要存储的 token 数据
+            //需要存储的 token 数据
+            uid: result.uid, 
             username:username
           });
           console.log("token");
@@ -46,21 +47,17 @@ class ServiceLoginService extends Service {
           console.log("token");
           console.log(error);
         }
-        // result.token = token;
-        // console.log("result");
-        // console.log(result);
         var propertysStr = JSON.stringify(result);
         var propertys = JSON.parse(propertysStr);
         propertys.token = token;
-        // propertys.token = token;
         console.log("propertys");
         console.log(propertys);
         return Promise.resolve(propertys);
       } else {
-        return Promise.reject();
+        return Promise.reject(error);
       }
     } catch (error) {
-      return Promise.reject();
+      return Promise.reject(error);
     }
   }
 }

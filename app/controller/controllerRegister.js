@@ -36,7 +36,7 @@ class ControllerRegisterController extends Controller {
             console.log(this.ctx);
             const status = this.ctx.response.status
             this.ctx.body = reponse.error({
-                message: '抱歉！注册失败，请重新注册',
+                message: error && error.message || '抱歉！注册失败，请重新注册',
                 status: status
             })
         }

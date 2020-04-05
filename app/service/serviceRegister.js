@@ -20,7 +20,7 @@ class ServiceRegisterService extends Service {
             console.log(username + '......' + password);
             return Promise.resolve(body)
         } catch (error) {
-            return Promise.reject()
+            return Promise.reject(error)
         }
     }
     async findDatabase() {
