@@ -1,11 +1,11 @@
-//用户登录的控制层
+//权限的控制层
 const Controller = require("egg").Controller;
 const { reponse } = require("../extend/helper.js");
-//注册操作调用service服务层方法
+//权限操作调用service服务层方法
 /**
- * @controller 用户登录模块
+ * @controller 用户权限模块
  */
-class ControllerLoginController extends Controller {
+class controllerJurisdiction extends Controller {
   /**  （ 注释必写，swagger-doc是根据这段注释来生成接口详细信息的 ）。
    * @Summary 用户登录。
    * @Description  登录用户。
@@ -14,9 +14,6 @@ class ControllerLoginController extends Controller {
    * @Request header string token
    * @Response 200   返回返回token结果。（ 对应 contract 里面的验证属性，下面会提到 。）
    */
-  async controllerLogin() {
-    await this.ctx.render("login");
-  }
 
   async login() {
     console.log("reponse");
@@ -46,4 +43,4 @@ class ControllerLoginController extends Controller {
   }
 }
 
-module.exports = ControllerLoginController;
+module.exports = controllerJurisdiction;
