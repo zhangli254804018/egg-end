@@ -52,7 +52,11 @@ class ServiceLoteryService extends Service {
       return Promise.reject(error);
     }
   }
-
+   /**
+   * 查询中奖号码
+   * @param {*} name
+   * @param {*} page
+   */
   async findDataBase() {
     console.log("================= start");
     console.log(this.ctx.request.query);

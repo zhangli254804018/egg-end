@@ -68,6 +68,18 @@ class ControllerLotteryController extends Controller {
             })
         }
     }
+    /**  （ 注释必写，swagger-doc是根据这段注释来生成接口详细信息的 ）。
+     * @Summary 修改中奖数据
+     * @Description  修改中奖号码
+     * @Router get /api/updateLottery 
+     * @Request body lottery 提交抽奖列表（ 注意提交post json格式 ）。
+     * @Request header string token
+     * @Response 200   返回返回token结果。（ 对应 contract 里面的验证属性，下面会提到 。）
+     */
+    lotteryUpdate(){
+        console.log('reponse');
+        console.log(reponse);
+    }
 }
 
 module.exports = ControllerLotteryController
