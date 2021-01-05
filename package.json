@@ -7,12 +7,13 @@
     "declarations": true
   },
   "dependencies": {
-    "egg": "^2.15.1",
+    "egg": "^2.29.1",
     "egg-jwt": "^3.1.7",
     "egg-mysql": "^3.0.0",
     "egg-scripts": "^2.11.0",
     "egg-swagger-doc": "^2.3.2",
-    "egg-view-ejs": "^2.0.0"
+    "egg-view-ejs": "^2.0.0",
+    "xml-js": "^1.6.11"
   },
   "devDependencies": {
     "autod": "^3.0.1",
@@ -36,7 +37,8 @@
     "cov": "egg-bin cov",
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
-    "autod": "autod"
+    "autod": "autod",
+    "pm2": "pm2 start app.js --watch -i 4"
   },
   "ci": {
     "version": "10"
