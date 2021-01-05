@@ -57,7 +57,9 @@
 //     ...view
 //   };
 // };
-
+//判断是否是正式环境
+const isProduction = process.env.NODE_ENV == 'production' ? true : false;
+console.log('process-->', process.env.NODE_ENV);
 module.exports = (appInfo) => {
     const config = (exports = {});
     config.keys = appInfo.name + ' ';
@@ -120,6 +122,22 @@ module.exports = (appInfo) => {
     };
     config.jwt = {
         secret: '123456' //自己设置的值
+    };
+    /**
+     * 微信公众平台的相关配置
+     * @member Config Egg配置
+     * @property {String}  appId - 应用号
+     * @property {number}  appSecret  - 应用密钥
+     * @property {number}  mchId  - 商户平台商家编号
+     * @property {number}  apiKey  - 商户支付接口密钥
+     * @property {number}  notifyUrl  - 支付结果回调地址
+     */
+    exports.mp = {
+        appId: 'wxae174715cd35e514',
+        appSecret: 'fde4f61df2dcbd6736ef5b5cc1e998e5',
+        mchId: '',
+        apiKey: '',
+        notifyUrl: ''
     };
     return {
         ...config
