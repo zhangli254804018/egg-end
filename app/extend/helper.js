@@ -4,6 +4,8 @@ exports.relativeTime = (time) => moment(new Date(time * 1000)).fromNow();
 
 exports.nowTime = (type = 'YYYY-MM-DD HH:mm:ss') => moment().format(type);
 
+const xml = require('xml-js');
+
 exports.reponse = {
     success: function (params = {}) {
         const { message, status, data } = params;
@@ -35,4 +37,35 @@ exports.getToken = async (_this) => {
         console.log(payload);
     } catch (error) {}
     return payload;
+};
+
+module.exports = {
+    xml2json(xmlStr) {
+        let result = xml.xml2json(xmlStr, {
+            compact: true,
+            spaces: 4
+        });
+        result = JSON.parse(result);
+        return this.deleteCDATA(result.xml);
+    },
+
+    json2xml(json) {
+        const result = xml.json2xml(json, {
+            compact: true,
+            spaces: 4
+        });
+        return '<xml>\n' + result + '\n</xml>';
+    },
+
+    deleteCDATA(args) {
+        const keys = Object.keys(args);
+        const obj = {};
+        for (let i = 0; i < keys.length; i++) {
+            const k = keys[i];
+            if (typeof args[k] === 'object') {
+                obj[k] = args[k]._cdata;
+            }
+        }
+        return obj;
+    }
 };
