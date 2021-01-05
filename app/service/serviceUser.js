@@ -1,5 +1,5 @@
 //登录账号的eggjs 服务层代码
-const Service = require("egg").Service;
+const Service = require('egg').Service;
 
 //登录方法
 class serviceUser extends Service {
@@ -9,9 +9,9 @@ class serviceUser extends Service {
      * @param {*} password
      */
     async FindDatabase() {
-        console.log("================= start");
+        console.log('================= start');
         console.log(this.ctx.request.body);
-        console.log("================= end");
+        console.log('================= end');
         const body = this.ctx.request.body;
         const username = body.username;
         const password = body.password;
@@ -23,13 +23,13 @@ class serviceUser extends Service {
             //     limit: 10, // 返回数据量
             //     offset: 0, // 数据偏移量
             //   });
-            const loginSucess = await this.app.mysql.select("user", {
+            const loginSucess = await this.app.mysql.select('user', {
                 where: { username: username, password: password }, // WHERE 条件
                 limit: 1 // 返回数据量
             });
 
             if (loginSucess.length > 0) {
-                console.log(username + "......" + password);
+                console.log(username + '......' + password);
                 console.log(loginSucess);
                 console.log(loginSucess[0]);
                 const result = loginSucess[0] || {};
@@ -41,16 +41,16 @@ class serviceUser extends Service {
                         uid: result.uid,
                         username: username
                     });
-                    console.log("token");
+                    console.log('token');
                     console.log(token);
                 } catch (error) {
-                    console.log("token");
+                    console.log('token');
                     console.log(error);
                 }
                 var propertysStr = JSON.stringify(result);
                 var propertys = JSON.parse(propertysStr);
                 propertys.token = token;
-                console.log("propertys");
+                console.log('propertys');
                 console.log(propertys);
                 return Promise.resolve(propertys);
             } else {
@@ -61,23 +61,26 @@ class serviceUser extends Service {
         }
     }
     /**
-    * 根据username password 注册用户
-    * @param {*} username 
-    * @param {*} password
-    */
+     * 根据username password 注册用户
+     * @param {*} username
+     * @param {*} password
+     */
     async InsertDatabase() {
         console.log('================= start');
-        console.log(this.ctx.request.body)
+        console.log(this.ctx.request.body);
         console.log('================= end');
-        const body = this.ctx.request.body
+        const body = this.ctx.request.body;
         const username = body.username;
         const password = body.password;
         try {
-            const registerSuccess = await this.app.mysql.insert('user', { username, password });
+            const registerSuccess = await this.app.mysql.insert('user', {
+                username,
+                password
+            });
             console.log(username + '......' + password);
-            return Promise.resolve(body)
+            return Promise.resolve(body);
         } catch (error) {
-            return Promise.reject(error)
+            return Promise.reject(error);
         }
     }
 }

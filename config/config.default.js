@@ -58,70 +58,70 @@
 //   };
 // };
 
-module.exports = appInfo => {
-  const config = (exports = {});
-  config.keys = appInfo.name + " ";
-  config.mysql = {
-    client: {
-      // host
-      host: "localhost",
-      // 端口号
-      port: "3306",
-      // 用户名
-      user: "test",
-      // 密码
-      password: "Aa123!",
-      // 数据库名
-      database: "test"
-    }
-  };
-  config.view = {
-    defaultViewEngine: ".ejs",
-    mapping: {
-      ".html": "ejs"
-    }
-  };
-  config.security = {
-    csrf: {
-      headerName: "x-csrf-token", // 自定义请求头
-      enable: false //关闭跨域post方法
-    }
-  };
-  config.swaggerdoc = {
-    dirScanner: "/app/controller",
-    apiInfo: {
-      title: "egg-swagger",
-      description: "swagger-ui for egg",
-      version: "1.0.0"
-    },
-    schemes: ["http", "https"],
-    consumes: ["application/json"],
-    produces: ["application/json"],
-    securityDefinitions: {
-      // apikey: {
-      //   type: 'apiKey',
-      //   name: 'clientkey',
-      //   in: 'header',
-      // },
-      // oauth2: {
-      //   type: 'oauth2',
-      //   tokenUrl: 'http://petstore.swagger.io/oauth/dialog',
-      //   flow: 'password',
-      //   scopes: {
-      //     'write:access_token': 'write access_token',
-      //     'read:access_token': 'read access_token',
-      //   },
-      // },
-    },
-    enableSecurity: false,
-    // enableValidate: true,
-    routerMap: true,
-    enable: true
-  };
-  config.jwt = {
-    secret: "123456" //自己设置的值
-  };
-  return {
-    ...config
-  };
+module.exports = (appInfo) => {
+    const config = (exports = {});
+    config.keys = appInfo.name + ' ';
+    config.mysql = {
+        client: {
+            // host
+            host: 'localhost',
+            // 端口号
+            port: '3306',
+            // 用户名
+            user: 'test',
+            // 密码
+            password: 'Aa123!',
+            // 数据库名
+            database: 'test'
+        }
+    };
+    config.view = {
+        defaultViewEngine: '.ejs',
+        mapping: {
+            '.html': 'ejs'
+        }
+    };
+    config.security = {
+        csrf: {
+            headerName: 'x-csrf-token', // 自定义请求头
+            enable: false //关闭跨域post方法
+        }
+    };
+    config.swaggerdoc = {
+        dirScanner: '/app/controller',
+        apiInfo: {
+            title: 'egg-swagger',
+            description: 'swagger-ui for egg',
+            version: '1.0.0'
+        },
+        schemes: ['http', 'https'],
+        consumes: ['application/json'],
+        produces: ['application/json'],
+        securityDefinitions: {
+            // apikey: {
+            //   type: 'apiKey',
+            //   name: 'clientkey',
+            //   in: 'header',
+            // },
+            // oauth2: {
+            //   type: 'oauth2',
+            //   tokenUrl: 'http://petstore.swagger.io/oauth/dialog',
+            //   flow: 'password',
+            //   scopes: {
+            //     'write:access_token': 'write access_token',
+            //     'read:access_token': 'read access_token',
+            //   },
+            // },
+        },
+        enableSecurity: false,
+        // enableValidate: true,
+        routerMap: true,
+        enable: true
+    };
+    config.jwt = {
+        secret: '123456' //自己设置的值
+    };
+    return {
+        ...config
+    };
 };

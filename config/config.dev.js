@@ -11,10 +11,10 @@ exports.mysql = {
         // 密码
         password: 'test_password',
         // 数据库名
-        database: 'test',
+        database: 'test'
     },
     // 是否加载到 app 上，默认开启
     app: true,
     // 是否加载到 agent 上，默认关闭
-    agent: false,
+    agent: false
 };

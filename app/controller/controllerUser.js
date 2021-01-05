@@ -1,6 +1,6 @@
 //用户登录的控制层
-const Controller = require("egg").Controller;
-const { reponse } = require("../extend/helper.js");
+const Controller = require('egg').Controller;
+const { reponse } = require('../extend/helper.js');
 //注册操作调用service服务层方法
 /**
  * @controller 用户登录模块
@@ -15,20 +15,20 @@ class ControllerUserController extends Controller {
      * @Response 200   返回返回token结果。（ 对应 contract 里面的验证属性，下面会提到 。）
      */
     async controllerLogin() {
-        await this.ctx.render("login");
+        await this.ctx.render('login');
     }
 
     async login() {
-        console.log("reponse");
+        console.log('reponse');
         console.log(reponse);
         console.log(this.service);
         try {
             const userInfo = await this.service.serviceUser.FindDatabase();
-            console.log("userInfo");
+            console.log('userInfo');
             console.log(userInfo);
             this.ctx.set('token', userInfo.token);
             this.ctx.body = reponse.success({
-                message: "成功",
+                message: '成功',
                 data: {
                     username: userInfo.username
                 }
@@ -39,7 +39,7 @@ class ControllerUserController extends Controller {
             //ctx.response.body.status
             const status = this.ctx.response.status;
             this.ctx.body = reponse.error({
-                message: error && error.message || "失败",
+                message: (error && error.message) || '失败',
                 status: status
             });
         }
@@ -64,15 +64,16 @@ class ControllerUserController extends Controller {
                     username: InsertDatabase.username,
                     password: '******'
                 }
-            })
+            });
         } catch (error) {
             console.log(error);
             console.log(this.ctx);
-            const status = this.ctx.response.status
+            const status = this.ctx.response.status;
             this.ctx.body = reponse.error({
-                message: error && error.message || '抱歉！注册失败，请重新注册',
+                message:
+                    (error && error.message) || '抱歉！注册失败，请重新注册',
                 status: status
-            })
+            });
         }
         // await this.controller.controllerLogin.jumpLogin();
         // await this.ctx.render('login');

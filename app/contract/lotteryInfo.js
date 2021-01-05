@@ -16,6 +16,6 @@ module.exports = {
         },
         page_size: {
             type: 'integer'
-        },
+        }
     }
 };
