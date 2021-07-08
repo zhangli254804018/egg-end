@@ -131,10 +131,10 @@ module.exports = (appInfo) => {
      * @property {number}  mchId  - 商户平台商家编号
      * @property {number}  apiKey  - 商户支付接口密钥
      * @property {number}  notifyUrl  - 支付结果回调地址
-     */
+     */    
     exports.mp = {
-        appId: 'wxae174715cd35e514',
-        appSecret: 'fde4f61df2dcbd6736ef5b5cc1e998e5',
+        appId: 'wx3b352c220cd6730b',
+        appSecret: '11f3cef056b3aea2e3367f7d1b5ca0b2',
         mchId: '',
         apiKey: '',
         notifyUrl: ''
