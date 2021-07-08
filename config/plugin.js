@@ -18,5 +18,9 @@ module.exports = {
     jwt: {
         enable: true,
         package: 'egg-jwt'
+    },
+    mp: {
+        enable: true,
+        package: 'egg-mp'
     }
 };
